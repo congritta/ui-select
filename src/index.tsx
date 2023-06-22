@@ -1,10 +1,10 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {ReactNode, useEffect, useRef, useState} from "react";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 type Option = {
   value: string,
-  element: JSX.Element | string
+  element: ReactNode
 }
 
 const defaultOptionHeight = 35;
@@ -32,9 +32,7 @@ export default function Select(props: {
   selectedOptionClassName?: string,
   optionsListClassName?: string,
 
-  zIndex?: number,
-  
-  notchIcon?: JSX.Element
+  notchIcon?: ReactNode
 }) {
 
   // Refs
@@ -124,11 +122,11 @@ export default function Select(props: {
         className={[
           styles.selectOptions,
           ...(props.optionsListClassName ? [props.optionsListClassName] : []),
-          ...(floatingDirection.top ? ['_isRevealedFromBottom'] : []),
-          ...(floatingDirection.left ? ['_isRevealedFromRight'] : []),
-          ...(isListRemovedFromLayout ? ['_isRemovedFromLayout'] : [])
-        ].join(' ')}
-        style={{zIndex: props.zIndex}}
+          ...(floatingDirection.top ? ["_isRevealedFromBottom"] : []),
+          ...(floatingDirection.left ? ["_isRevealedFromRight"] : []),
+          ...(isListRemovedFromLayout ? ["_isRemovedFromLayout"] : [])
+        ].join(" ")}
+        style={{zIndex: !isListRemovedFromLayout ? 999999 : undefined}}
       >
         {props.options.map((option) => (
           <button
@@ -137,7 +135,7 @@ export default function Select(props: {
             className="_isZeroed"
             onClick={() => props.onChange(option.value)}
           >
-            {typeof option.element === 'string' ? (
+            {typeof option.element === "string" ? (
               <span>{option.element}</span>
             ) : (
               option.element

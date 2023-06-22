@@ -20,7 +20,7 @@ into your code
 Example:
 
 ```jsx
-export default MyComponentWidthSelect() {
+export default function MyComponentWidthSelect() {
   const [value, setValue] = useState('a');
 
   return (
@@ -50,5 +50,4 @@ export default MyComponentWidthSelect() {
 | selectedOptionClassName             | Class name for selected option for adding additional styles                                                                                                          | false       |                               |
 | wrapperClassName                    | Class name for Select component wrapper for adding additional styles                                                                                                 | false       |                               |
 | optionsListClassName                | Class name for options list for adding additional styles                                                                                                             | false       |                               |
-| zIndex                              | z-index value for options list                                                                                                                                       | false       |                               |
 | notchIcon                           | SVG Element about arrow icon at the right                                                                                                                            | false       |                               |

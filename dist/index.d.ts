@@ -1,7 +1,7 @@
-/// <reference types="react" />
+import { ReactNode } from "react";
 type Option = {
     value: string;
-    element: JSX.Element | string;
+    element: ReactNode;
 };
 export default function Select(props: {
     transitionDuration?: number;
@@ -13,8 +13,7 @@ export default function Select(props: {
     wrapperClassName?: string;
     selectedOptionClassName?: string;
     optionsListClassName?: string;
-    zIndex?: number;
-    notchIcon?: JSX.Element;
+    notchIcon?: ReactNode;
 }): import("react/jsx-runtime").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map
